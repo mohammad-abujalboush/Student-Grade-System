@@ -1,0 +1,72 @@
+﻿@model IEnumerable<StudentGradeBookSystem.Models.Student>
+
+@{
+    ViewData["Title"] = "ListOfStudents";
+}
+
+
+<h1>Grades List</h1>
+
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-secondary text-secondary"> <i class="bi bi-plus-circle-fill"></i> Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssignmentGrade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MidTermGrade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FinalGrade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssignmentGrade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MidTermGrade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FinalGrade)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.Total)
+             </td>
+
+            <td>
+                @Html.ActionLink("Delete", "Delete", new {  name=item.Name  })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
